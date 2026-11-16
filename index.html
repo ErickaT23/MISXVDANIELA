@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>XV Daniela</title>
+  <meta name="description" content="Celebra conmigo mis XV, te esperamos.">
+
+  <!-- Open Graph (WhatsApp, Facebook) -->
+  <meta property="og:title" content="XV Daniela">
+  <meta property="og:description" content="Celebra conmigo mis XV, te esperamos.">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="XV Daniela">
+  <meta name="twitter:description" content="Celebra conmigo mis XV, te esperamos.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Luxurious+Script&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css?v=20260519a">
+</head>
+<body class="portada-lock">
+  <section id="portada" class="portada" aria-label="Portada">
+    <div class="portada-fondo"></div>
+    <div id="portada-envelope-trigger" class="portada-contenido" role="presentation">
+      <div class="portada-center">
+        <h1 class="portada-main-name portada-nombre">
+           <span>Mis Quince</span>
+           <span>Daniela</span>
+        </h1>
+        <button id="btn-abrir" type="button">Abrir invitación</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="invitacion" class="invitacion-shell" aria-live="polite">
+    <aside id="side-menu" class="side-menu section" aria-label="Navegación">
+      <nav>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#frase">Frase</a></li>
+          <li><a href="#rsvp-section">RSVP</a></li>
+          <li><a href="#contador">Cuenta regresiva</a></li>
+          <li><a href="#padres">Padres</a></li>
+          <li><a href="#itinerario">Itinerario</a></li>
+          <li><a href="#eventos">Evento</a></li>
+          <li><a href="#dresscode">Dress code</a></li>
+          <li><a href="#regalos">Regalos</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#fotos">Sube fotos</a></li>
+          <li><a href="#deseos">Buenos deseos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <section id="hero" class="section hero zoom-in-element">
+        <div class="hero-overlay"></div>
+         <img class="hero-image" src="images/fotos/V2.jpg" alt="Daniela" data-parallax data-parallax-speed="0.045" data-parallax-max="28">
+        <div class="hero-content fade-in-element">
+           <h2 class="hero-title zoom-in-element"><span>Mis Quince</span><span>Daniela</span></h2>
+        </div>
+        <a id="scroll-hint" href="#frase" aria-label="Deslizar hacia abajo">Desliza hacia abajo</a>
+      </section>
+
+      <section id="frase" class="section frase fade-in-element">
+        <div class="frase-content">
+          <img class="frase-corona" src="images/CORONA.png" alt="Corona decorativa">
+           <p>Con la bendición de Dios y la nuestra:<br><br>Amada hija, le damos gracias a Dios por tus quince años y por la hermosa mujer en la que te estás convirtiendo. Que el Señor siempre guíe tus pasos para que persigas tus sueños con valentía, sabiendo que en nosotros siempre tendrás amor y un refugio seguro.<br><br>Con todo nuestro amor, tus padres:<br>Arnold Rivera y Liza de Rivera</p>
+        </div>
+      </section>
+
+      <section id="separador-sobre" class="section separador-sobre fade-in-element" aria-label="Separador">
+        <video class="separador-video" autoplay muted loop playsinline aria-label="Separador decorativo">
+          <source src="images/SEPARADORES-DANIELA.mp4" type="video/mp4">
+        </video>
+      </section>
+
+      <section id="rsvp-section" class="section rsvp slide-left fade-in-element">
+        <div class="section-head">
+          <h3>¡Es un placer invitarte!</h3>
+        </div>
+        <div class="rsvp-card">
+          <p id="nombre-invitado" class="invitado-nombre">Invitado Especial</p>
+          <p class="invitado-mensaje">Eres muy especial para nosotros</p>
+          <h4 class="invitado-lugares">Hemos reservado para ti <span id="numero-lugares">2</span> lugares especiales.</h4>
+
+          <p class="rsvp-intro">Confirma tu asistencia para brindarte una experiencia inolvidable.</p>
+          <form id="rsvp-form" novalidate>
+            <input id="rsvp-name" type="hidden" name="rsvp-name">
+            <button id="rsvp-submit" type="submit">Confirmar asistencia</button>
+          </form>
+
+          <div id="rsvp-success" style="display:none;">
+            <p id="rsvp-final-message"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contador" class="section countdown zoom-in-element">
+        <div class="countdown-inner">
+          <h3>12 de diciembre, 2026</h3>
+          <div class="count-grid">
+            <div><span id="days">00</span><small>Días</small></div>
+            <div><span id="hours">00</span><small>Horas</small></div>
+            <div><span id="minutes">00</span><small>Minutos</small></div>
+            <div><span id="seconds">00</span><small>Segundos</small></div>
+          </div>
+           <a class="btn-soft countdown-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis%20Quince%20Daniela&dates=20261212T180000/20261213T000000&ctz=America/Guatemala&details=Mis%20Quince%20Daniela%20-%2012%20de%20diciembre%2C%202026&location=Jardin%20Vilaflor%2C%20kil%C3%B3metro%2032.5%2C%20carretera%20hacia%20San%20Lucas%2C%20Antigua%20Guatemala" target="_blank" rel="noopener">Agregar al calendario</a>
+        </div>
+      </section>
+
+      <section id="separador-contador" class="section separador-sobre fade-in-element" aria-label="Separador">
+        <video class="separador-video" autoplay muted loop playsinline aria-label="Separador decorativo">
+          <source src="images/S2.mp4" type="video/mp4">
+        </video>
+      </section>
+
+      <section id="agradecimiento" class="section frase fade-in-element" hidden>
+        <div class="frase-content">
+          <p>Gracias por ser parte de este momento único.</p>
+        </div>
+      </section>
+
+      <section id="padres" class="section padres slide-right fade-in-element" hidden>
+        <div class="padres-content">
+          <p class="padres-intro">Con el amor de Dios y la bendición de mis padres</p>
+           <h3>Arnold Rivera &amp; Liza de Rivera</h3>
+        </div>
+      </section>
+
+      <section id="separador-h1" class="section separador-h1 fade-in-element" aria-label="Separador">
+        <img src="images/fotos/V1.jpg" alt="Separador decorativo" data-parallax data-parallax-speed="0.024" data-parallax-max="14">
+      </section>
+
+      <section id="itinerario" class="section itinerario fade-in-element">
+        <div class="section-head">
+          <h3>Itinerario</h3>
+        </div>
+        <div class="timeline">
+           <article><img class="timeline-icon" src="images/Iconos/CHURCH.png" alt="Ceremonia"><p class="timeline-hora">5:00 PM</p><h4>Ceremonia</h4></article>
+           <article><img class="timeline-icon" src="images/Iconos/DINNER.png" alt="Recepción"><p class="timeline-hora">6:00 PM</p><h4>Recepción</h4></article>
+           <article><img class="timeline-icon" src="images/Iconos/CHEERS.png" alt="Brindis"><p class="timeline-hora">8:00 PM</p><h4>Brindis</h4></article>
+           <article><img class="timeline-icon" src="images/Iconos/PARTY.png" alt="Fiesta"><p class="timeline-hora">9:00 PM</p><h4>Fiesta</h4></article>
+        </div>
+      </section>
+
+      <section id="eventos" class="section eventos fade-in-element">
+        <div class="section-head">
+        </div>
+        <div class="events-container">
+          <article class="event-card slide-left">
+             <img class="event-emoji" src="images/Iconos/CHURCH.png" alt="Ceremonia">
+            <h4 class="event-title"><span class="event-inicial">C</span><span class="event-resto">eremonia</span></h4>
+            <p id="ceremonia-nombre" class="event-lugar">Iglesia Catedral</p>
+            <p id="ceremonia-direccion" class="event-direccion">Quetzaltenango</p>
+            <a class="btn-location event-parallax-btn" href="https://maps.app.goo.gl/UR8YG5dqu9fzo5NeA" target="_blank" rel="noopener">Ubicación</a>
+          </article>
+          <article class="event-card slide-right">
+             <img class="event-emoji" src="images/Iconos/DINNER.png" alt="Recepción">
+            <h4 class="event-title"><span class="event-inicial">R</span><span class="event-resto">ecepción</span></h4>
+             <p id="recepcion-nombre" class="event-lugar">Jardín Vilaflor</p>
+             <p id="recepcion-direccion" class="event-direccion">Kilómetro 32.5, carretera hacia San Lucas, Antigua Guatemala</p>
+             <a class="btn-location event-parallax-btn" href="https://maps.app.goo.gl/avZaewNmhM6xo6Nn9" target="_blank" rel="noopener">Ubicación</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="separador-h1" class="section separador-h1 fade-in-element" aria-label="Separador">
+        <img src="images/fotos/V5.jpg" alt="Separador decorativo" data-parallax data-parallax-speed="0.024" data-parallax-max="14">
+      </section>
+
+      <section id="dresscode" class="section dresscode fade-in-element">
+        <div class="dress-card">
+          <h3 class="dress-title">Código de Vestimenta</h3>
+          <div class="dress-icons" aria-hidden="true">
+            <img class="dress-icon" src="images/Iconos/lady.svg" alt="">
+            <img class="dress-icon" src="images/Iconos/groom.svg" alt="">
+          </div>
+            <p class="dress-copy">Una noche de gala nos espera. Con cariño, reservamos los tonos rosado y dorado para la quinceañera, quien brillará como la estrella de esta celebración.</p>
+          <h4 class="dress-subtitle">Inspiración</h4>
+          <a class="btn-soft" href="https://es.pinterest.com/search/pins/?q=Outfits%20para%20invitadas%20e%20invitados%20para%20fiesta&rs=typed" target="_blank" rel="noopener">Ir a Pinterest</a>
+        </div>
+      </section>
+
+      <section id="regalos" class="section regalos fade-in-element">
+        <div class="regalos-card">
+           <img class="regalos-icon" src="images/Iconos/GIFT.png" alt="Regalos">
+          <h3 class="regalos-title">Lluvia de Sobres</h3>
+            <p class="regalos-copy">Tu presencia será nuestro regalo más preciado. Si deseas acompañarnos con un detalle, una lluvia de sobres recibirá con mucho cariño tu aporte en efectivo.</p>
+        </div>
+      </section>
+
+      <section id="separador-h1" class="section separador-h1 fade-in-element" aria-label="Separador">
+        <img src="images/fotos/V6.jpg" alt="Separador decorativo" data-parallax data-parallax-speed="0.024" data-parallax-max="14">
+      </section>
+
+      <section id="fotos" class="section fotos fade-in-element">
+        <div class="fotos-card">
+          <h3 class="fotos-title">¡Hagamos los recuerdos realidad!</h3>
+            <img class="fotos-qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1ZALkopBTfDFA02hk27N1pRFb7OeAcnXe%3Fusp%3Ddrive_link&amp;size=500&amp;dark=%23cfa59a" alt="QR para subir fotos y videos">
+          <p class="fotos-copy">Ayúdanos a inmortalizar este día tan especial, compartiendo con nosotros las fotos y videos que captures. Puedes hacerlo escaneando el QR o subiéndolas en el botón.</p>
+           <a class="btn-soft" href="https://drive.google.com/drive/folders/1ZALkopBTfDFA02hk27N1pRFb7OeAcnXe?usp=drive_link" target="_blank" rel="noopener">Subir Fotos</a>
+        </div>
+      </section>
+
+      <section id="deseos" class="section deseos fade-in-element">
+        <div class="regalos-card deseos-card">
+          <h3 class="regalos-title">Buenos deseos</h3>
+          <p class="regalos-copy">Déjanos un mensaje especial para recordar este día contigo.</p>
+
+          <div class="deseos-actions">
+            <button class="btn-soft" type="button" onclick="toggleWishForm()">Dejar mi deseo</button>
+            <button class="btn-soft" type="button" onclick="toggleWishes()">Ver mensajes</button>
+          </div>
+
+          <div id="wish-form-panel" class="deseos-form-panel hidden" aria-label="Formulario de buenos deseos">
+            <form id="wish-form" class="deseos-form" onsubmit="return submitWish(event)">
+              <input id="wish-name" type="text" maxlength="60" placeholder="Tu nombre" required>
+              <textarea id="wish-message" rows="4" maxlength="280" placeholder="Escribe tu deseo" required></textarea>
+              <button class="btn-soft" type="submit">Enviar deseo</button>
+            </form>
+          </div>
+
+          <p id="wish-status" class="deseos-status" aria-live="polite"></p>
+          <div id="wishes" class="deseos-list" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="separador-v2" class="section separador-v2 fade-in-element" aria-label="Separador">
+        <img id="separador-v2-rotativo" src="images/fotos/V7.jpg" alt="Separador decorativo" data-parallax data-parallax-speed="0.024" data-parallax-max="14">
+      </section>
+
+      <section class="section frase-final zoom-in-element">
+           <p class="frase-final-title">Hay momentos en la vida que son inolvidables, pero compartirlos con quien más quiero los hace eternos. Tu presencia en esta noche me recuerda que nunca he caminado sola. Gracias por ser parte de mi historia</p>
+      </section>
+    </main>
+
+    <footer id="footer" class="footer visible" style="--reveal-order: 3;">
+      <div id="social-icons">
+        <a href="https://wa.me/50236011737" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://facebook.com/rociofernandoboda" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://instagram.com/rocio.fernando.boda" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+
+      <div class="footer-logo">
+        <img id="footer-logo" alt="Logo de la empresa" src="images/logo.png">
+      </div>
+    </footer>
+  </div>
+
+  <script src="config.js?v=20260519a"></script>
+  <script type="module" src="database.js?v=20260519a"></script>
+  <script src="script.js?v=20260519a"></script>
+</body>
+</html>

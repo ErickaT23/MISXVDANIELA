@@ -1,12 +1,6 @@
 import { subscribeToConfirmations, subscribeToInvitados } from "./database.js";
 
-const guestDirectorySeed = {
-    "1": { nombre: "Valeria Soto", pases: 2 },
-    "2": { nombre: "Diego Marín", pases: 4 },
-    "3": { nombre: "Camila Rivas", pases: 3 },
-    "4": { nombre: "Javier Ponce", pases: 1 },
-    "5": { nombre: "Lucía Herrera", pases: 2 }
-};
+const guestDirectorySeed = {};
 
 const guestDirectoriesByEvent = {
     "misxv-anika-fernanda-2026": guestDirectorySeed

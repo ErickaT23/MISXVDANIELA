@@ -1342,13 +1342,7 @@ async function seedEventData(arg1, arg2) {
   const options = arg2 && typeof arg2 === "object" ? arg2 : {};
   const force = Boolean(options.force);
 
-  const sampleGuests = {
-    "1": { id: "1", nombre: "Valeria Soto", pases: 2, activo: true },
-    "2": { id: "2", nombre: "Diego Marín", pases: 4, activo: true },
-    "3": { id: "3", nombre: "Camila Rivas", pases: 3, activo: true },
-    "4": { id: "4", nombre: "Javier Ponce", pases: 1, activo: true },
-    "5": { id: "5", nombre: "Lucía Herrera", pases: 2, activo: true }
-  };
+  const sampleGuests = {};
 
   const [rsvpSnapshot, wishesSnapshot] = await Promise.all([
     get(ref(db, getEventRsvpPath(eventId))),

@@ -205,7 +205,7 @@ p {
   border-radius: 999px;
   border: 1px solid rgba(201, 152, 173, 0.55);
   background: linear-gradient(150deg, rgba(255, 248, 244, 0.96), rgba(238, 217, 205, 0.92));
-  color: #b8849d;
+  color: #cfa59a;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -220,9 +220,10 @@ p {
 }
 
 .music-fab.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+  display: inline-flex !important;
 }
 
 .music-fab:hover {
@@ -652,7 +653,7 @@ p {
   position: relative;
   z-index: 1;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 1.2s ease-in-out;
 }
 
 .separador-video-next {
@@ -984,7 +985,7 @@ p {
 }
 
 .padres-intro {
-  font-size: 22px;
+  font-size: 20px;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   color: #cfa59a !important;

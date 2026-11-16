@@ -42,7 +42,7 @@ function initSeparatorVideos() {
 
         const handleTimeUpdate = () => {
             if (!activeVideo.duration || switching) return;
-            if (activeVideo.duration - activeVideo.currentTime > 0.8) return;
+            if (activeVideo.duration - activeVideo.currentTime > 1.5) return;
 
             switching = true;
             standbyVideo.currentTime = 0;
@@ -59,8 +59,8 @@ function initSeparatorVideos() {
                     standbyVideo = previousActive;
                     switching = false;
                     activeVideo.addEventListener('timeupdate', handleTimeUpdate);
-                }, 400);
-            }, 100);
+                }, 1200);
+            }, 120);
         };
 
         video.classList.add('separador-video-playing');
@@ -301,13 +301,7 @@ function applyFooterConfig() {
 // CONFIGURACIÓN - Editar aquí los invitados
 // ============================================
 const GuestConfig = {
-    invitados: {
-        "1": { nombre: "Valeria Soto", pases: 2 },
-        "2": { nombre: "Diego Marín", pases: 4 },
-        "3": { nombre: "Camila Rivas", pases: 3 },
-        "4": { nombre: "Javier Ponce", pases: 1 },
-        "5": { nombre: "Lucía Herrera", pases: 2 }
-    },
+    invitados: {},
     invitadoDefault: { nombre: "Invitado Especial", pases: 2 },
     paramId: 'id'
 };
@@ -567,7 +561,11 @@ const MusicBubble = {
     reveal() {
         if (!this.button) return;
         this.button.hidden = false;
-        this.button.style.display = 'inline-flex';
+        this.button.removeAttribute('hidden');
+        this.button.style.setProperty('display', 'inline-flex', 'important');
+        this.button.style.setProperty('opacity', '1', 'important');
+        this.button.style.setProperty('pointer-events', 'auto', 'important');
+        this.button.style.setProperty('transform', 'translateY(0) scale(1)', 'important');
         window.requestAnimationFrame(() => {
             this.button.classList.add('is-visible');
         });

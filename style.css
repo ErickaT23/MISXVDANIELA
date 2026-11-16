@@ -427,7 +427,7 @@ p {
   padding: 10px;
   line-height: 0.95;
   color: transparent !important;
-  background:linear-gradient(180deg, #ffffff 0%, #eee0df 34%, #d6b4b1 62%, #eab5ad 100%);
+  background: linear-gradient(180deg, #f5d8ce 0%, #e8b9aa 38%, #c98d7d 72%, #a96861 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -440,6 +440,10 @@ p {
 
 .hero-title span {
   display: block;
+}
+
+.hero-title span:first-child {
+  margin-top: 0;
 }
 
 #agradecimiento,
@@ -547,7 +551,7 @@ p {
   letter-spacing: 0.02em;
   line-height: 1.45;
   text-shadow: none;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -606,7 +610,7 @@ p {
   font-weight: 300;
   letter-spacing: 0.02em;
   line-height: 1.45;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -633,6 +637,32 @@ p {
   height: auto;
   display: block;
   object-fit: cover;
+}
+
+.separador-video.suave-loop {
+  opacity: 1;
+  transition: opacity 0.7s ease;
+}
+
+.separador-video.suave-loop-out {
+  opacity: 0;
+}
+
+.separador-video {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.separador-video-next {
+  position: absolute !important;
+  inset: 0;
+  z-index: 2;
+}
+
+.separador-video.separador-video-playing {
+  opacity: 1;
 }
 
 .section-head {
@@ -669,7 +699,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
   letter-spacing: 0.02em;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -799,7 +829,7 @@ p {
   width: 100%;
   min-height: 48px;
   font-size: 1rem;
-  background: #c59ea2;
+  background: #cfa59a;
   color: #8e6228 !important;
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
@@ -859,7 +889,7 @@ p {
 .countdown h3 {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -966,7 +996,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
   letter-spacing: 0.02em;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -988,7 +1018,7 @@ p {
 #itinerario .section-head h3 {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1079,7 +1109,7 @@ p {
   font-size: 40px;
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1162,7 +1192,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-size: 33px;
   font-weight: 500;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1243,7 +1273,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
   letter-spacing: 0.02em;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1342,8 +1372,8 @@ p {
 
 .regalos-icon {
   display: block;
-  width: clamp(72px, 12vw, 98px);
-  height: clamp(72px, 12vw, 98px);
+  width: clamp(98px, 12vw, 150px);
+  height: clamp(98px, 12vw, 150px);
   object-fit: contain;
   margin: 0 auto 0.55rem;
 }
@@ -1614,7 +1644,7 @@ p {
   max-width: none;
   padding: 1rem 1.2rem 1.4rem;
   text-align: center;
-  background: linear-gradient(160deg, #d8a5ac 0%, #c9909a 45%, #bf8792 100%);
+  background: #cfa59a;
   border-top: 1px solid rgba(255, 230, 236, 0.42);
   border: 0;
   border-radius: 0;
@@ -1739,7 +1769,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: radial-gradient(circle at 50% 45%, #f1d8ce 0%, #e1bdb0 30%, #cfa59a 62%, #9f7468 100%);
+  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1983,14 +2013,14 @@ body:not(.portada-lock) {
   font-weight: 400;
   line-height: 1.02;
   text-align: center;
-  background: linear-gradient(140deg, #f7e6c4 0%, #d9b56a 30%, #e8cfc4 62%, #b8925b 100%);
+  background: linear-gradient(180deg, #d6b36b 0%, #633d0a 35%, #b88746 55%, #5c482e 78%, #5c482e 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent !important;
   text-shadow: 0 6px 20px rgba(97, 70, 45, 0.3), 0 0 16px rgba(217, 181, 106, 0.34);
   animation: roseShimmer 3.8s linear infinite, portadaNameZoom 4.2s ease-in-out infinite;
-  margin-top: 78px;
+  margin-top: 90px;
   padding: 10px;
 }
 
@@ -2069,7 +2099,7 @@ body:not(.portada-lock) {
 }
 
 #portada #btn-abrir {
-  background: #c59ea2;
+  background: #cfa59a;
   color: #8e6228 !important;
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
@@ -2154,6 +2184,56 @@ body:not(.portada-lock) {
   100% {
     filter: brightness(0.96);
     text-shadow: 0 0 12px rgba(214, 169, 143, 0.28);
+  }
+}
+
+button,
+.btn-soft,
+.btn-location {
+  background-color: #cfa59a !important;
+}
+
+.gold-sparkle-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483001;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gold-sparkle {
+  position: absolute;
+  width: var(--sparkle-size);
+  height: var(--sparkle-size);
+  border-radius: 1px;
+  background: #e2ae3f;
+  clip-path: polygon(50% 0%, 64% 36%, 100% 50%, 64% 64%, 50% 100%, 36% 64%, 0% 50%, 36% 36%);
+  box-shadow: 0 0 7px 1px rgba(226, 174, 63, 0.9), 0 0 14px rgba(255, 226, 142, 0.6);
+  opacity: 0.2;
+  animation: goldSparkleTwinkle ease-in-out infinite;
+}
+
+.gold-sparkle.white-sparkle {
+  background: #fff8df;
+  box-shadow: 0 0 7px 1px rgba(255, 252, 231, 0.95), 0 0 14px rgba(255, 239, 177, 0.72);
+}
+
+@keyframes goldSparkleTwinkle {
+  0% {
+    opacity: 0.12;
+    transform: scale(0.55);
+  }
+  45% {
+    opacity: 0.72;
+    transform: scale(1.25);
+  }
+  70% {
+    opacity: 0.34;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 0.12;
+    transform: scale(0.55);
   }
 }
 

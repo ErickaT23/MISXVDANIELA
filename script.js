@@ -20,21 +20,52 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 function initSeparatorVideos() {
     document.querySelectorAll('.separador-video').forEach((video) => {
-        video.muted = true;
-        video.defaultMuted = true;
-        video.loop = true;
-        video.playsInline = true;
+        const nextVideo = video.cloneNode(true);
+        nextVideo.classList.add('separador-video-next');
+        video.parentElement.appendChild(nextVideo);
 
-        const playVideo = () => {
-            const playback = video.play();
+        [video, nextVideo].forEach((currentVideo) => {
+            currentVideo.muted = true;
+            currentVideo.defaultMuted = true;
+            currentVideo.loop = false;
+            currentVideo.playsInline = true;
+        });
+
+        let activeVideo = video;
+        let standbyVideo = nextVideo;
+        let switching = false;
+
+        const playVideo = (currentVideo) => {
+            const playback = currentVideo.play();
             if (playback && typeof playback.catch === 'function') playback.catch(() => {});
         };
 
-        if (video.readyState >= 2) {
-            playVideo();
-        } else {
-            video.addEventListener('canplay', playVideo, { once: true });
-        }
+        const handleTimeUpdate = () => {
+            if (!activeVideo.duration || switching) return;
+            if (activeVideo.duration - activeVideo.currentTime > 0.8) return;
+
+            switching = true;
+            standbyVideo.currentTime = 0;
+            playVideo(standbyVideo);
+
+            window.setTimeout(() => {
+                standbyVideo.classList.add('separador-video-playing');
+                activeVideo.classList.remove('separador-video-playing');
+
+                window.setTimeout(() => {
+                    activeVideo.pause();
+                    const previousActive = activeVideo;
+                    activeVideo = standbyVideo;
+                    standbyVideo = previousActive;
+                    switching = false;
+                    activeVideo.addEventListener('timeupdate', handleTimeUpdate);
+                }, 400);
+            }, 100);
+        };
+
+        video.classList.add('separador-video-playing');
+        activeVideo.addEventListener('timeupdate', handleTimeUpdate);
+        playVideo(video);
     });
 }
 
@@ -415,6 +446,7 @@ function initPortada() {
 
     function openInvitation() {
         MusicBubble.startFromUserGesture();
+        createGoldSparkleRain();
         document.body.style.overflow = 'auto';
         document.body.classList.remove('portada-lock');
 
@@ -426,10 +458,10 @@ function initPortada() {
         portada.classList.add('abrir');
         invitacion.classList.add('revelar');
         MensajeFlota.mostrar();
+        MusicBubble.reveal();
         
         setTimeout(function() {
             portada.style.display = 'none';
-            MusicBubble.reveal();
         }, 1200);
     }
 
@@ -437,6 +469,27 @@ function initPortada() {
     if (envelopeTrigger) {
         envelopeTrigger.addEventListener('click', openInvitation);
     }
+}
+
+function createGoldSparkleRain() {
+    if (document.querySelector('.gold-sparkle-rain')) return;
+
+    const rain = document.createElement('div');
+    rain.className = 'gold-sparkle-rain';
+    rain.setAttribute('aria-hidden', 'true');
+
+    for (let index = 0; index < 34; index += 1) {
+        const sparkle = document.createElement('span');
+        sparkle.className = Math.random() > 0.62 ? 'gold-sparkle white-sparkle' : 'gold-sparkle';
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.top = `${Math.random() * 100}%`;
+        sparkle.style.animationDelay = `${Math.random() * 0.9}s`;
+        sparkle.style.animationDuration = `${2.8 + Math.random() * 3.5}s`;
+        sparkle.style.setProperty('--sparkle-size', `${2 + Math.random() * 2.5}px`);
+        rain.appendChild(sparkle);
+    }
+
+    document.body.appendChild(rain);
 }
 
 // ============================================
@@ -498,12 +551,12 @@ const MusicBubble = {
     },
 
     async startFromUserGesture() {
-        if (!this.audio || !this.button) return;
+         if (!this.audio) return;
 
         try {
             await this.audio.play();
             this.isPlaying = true;
-            this.syncVisualState(true);
+             this.syncVisualState(Boolean(this.button));
         } catch (error) {
             this.isPlaying = false;
             this.syncVisualState(false);
@@ -514,6 +567,7 @@ const MusicBubble = {
     reveal() {
         if (!this.button) return;
         this.button.hidden = false;
+        this.button.style.display = 'inline-flex';
         window.requestAnimationFrame(() => {
             this.button.classList.add('is-visible');
         });

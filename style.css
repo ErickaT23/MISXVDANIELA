@@ -261,7 +261,7 @@ p {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  color: #b07a92;
+  color: #cfa59a;
   background: linear-gradient(145deg, rgba(255, 250, 252, 0.72), rgba(237, 218, 223, 0.58));
   border: 1px solid rgba(186, 133, 154, 0.55);
   border-radius: 999px;
@@ -1504,6 +1504,8 @@ p {
 
 .wish-card {
   text-align: left;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
   border: 1px solid rgba(214, 179, 107, 0.7);
   border-radius: 14px;
   background: rgba(255, 249, 239, 0.9);
@@ -1518,7 +1520,7 @@ p {
 
 .wish-card-message {
   margin-top: 0.2rem;
-  color: #7d5f46;
+  color: #cfa59a;
 }
 
 .wish-card-date {

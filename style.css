@@ -914,7 +914,7 @@ p {
 .count-grid div {
   border: 2px solid transparent;
   border-image: linear-gradient(140deg, #f7e7b0 0%, #d9b56a 28%, #fff3c8 52%, #c89949 76%, #f2dd9f 100%) 1;
-  background: rgb(232 198 208 / 24%);
+  background: rgb(232 198 208 / 65%);
   border-radius: 0;
   text-align: center;
   padding: 2px;
@@ -926,7 +926,7 @@ p {
 .count-grid span {
   display: block;
   font-family: "Cormorant Garamond", serif;
-  font-size: 17px;
+  font-size: 25px;
   line-height: 1;
   color: #7b2948;
 }
@@ -935,7 +935,7 @@ p {
   opacity: 0.9;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 13px;
   color: #7b2948;
 }
 

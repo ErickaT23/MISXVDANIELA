@@ -895,7 +895,7 @@ function initRSVP() {
         overlay.classList.add('active');
     }
 
-    function showResultPopup(message, isError) {
+    function showResultPopup(message, isError, whatsappUrl) {
         const overlay = getOrCreatePopup();
         const popup = overlay.querySelector('.rsvp-popup');
         if (!popup) return;
@@ -904,6 +904,7 @@ function initRSVP() {
         popup.innerHTML = [
             '<h4 class="rsvp-popup-title">Confirmar Asistencia</h4>',
             '<p class="rsvp-popup-message">' + message + '</p>',
+            whatsappUrl ? '<a class="rsvp-whatsapp-btn" href="' + whatsappUrl + '" target="_blank" rel="noopener">Enviar por WhatsApp</a>' : '',
             '<button type="button" class="rsvp-popup-close" aria-label="Cerrar mensaje">Aceptar</button>'
         ].join('');
 
@@ -1091,7 +1092,12 @@ function initRSVP() {
         try {
             const savedRecord = await saveConfirmation(payload);
             applyConfirmedState(savedRecord);
-            showResultPopup(confirmationMessages[respuesta]);
+            const whatsappMessage = [
+                'Hola, soy ' + payload.nombre + '.',
+                'Mi respuesta para los XV de Daniela es: ' + (respuesta === 'si' ? 'Sí asistiré.' : 'No podré asistir.')
+            ].join(' ');
+            const whatsappUrl = 'https://wa.me/50250161235?text=' + encodeURIComponent(whatsappMessage);
+            showResultPopup(confirmationMessages[respuesta], false, whatsappUrl);
         } catch (error) {
             if (error && (error.code === 'RSVP_ALREADY_CONFIRMED' || error.code === 'RSVP_ALREADY_CONFIRMED_DEVICE')) {
                 const existingRecord = (error.existingData && error.existingData.confirmado)

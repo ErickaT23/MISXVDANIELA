@@ -1846,6 +1846,19 @@ p {
   font-style: italic;
 }
 
+.rsvp-whatsapp-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid rgba(123, 41, 72, 0.3);
+  border-radius: 999px;
+  background: #f7e7e8;
+  color: #7b2948 !important;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 .rsvp-popup.is-error {
   border-color: #d8a9a2;
 }

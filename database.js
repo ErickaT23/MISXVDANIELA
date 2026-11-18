@@ -767,7 +767,8 @@ async function saveGroupConfirmation(arg1, arg2, arg3) {
     }
 
     const confirmados = Math.max(0, Number(snapshotData && snapshotData.confirmados) || 0);
-    if (confirmados >= 20) {
+    const noAsistiran = Math.max(0, Number(snapshotData && snapshotData.noAsistiran) || 0);
+    if (confirmados + noAsistiran >= 50) {
       throw createRsvpError("RSVP_GROUP_FULL", "RSVP_GROUP_FULL");
     }
 

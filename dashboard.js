@@ -184,6 +184,10 @@ function buildRows(confirmations, guestDirectory) {
 
     confirmationById.forEach((confirmation, id) => {
         if (configuredIds.includes(id)) return;
+        if (id === "47" && confirmation.isGroupPool && confirmation.registros.length > 0) {
+            rows.push(...buildGroupRows(confirmation));
+            return;
+        }
         rows.push({ ...confirmation, activo: true });
     });
 

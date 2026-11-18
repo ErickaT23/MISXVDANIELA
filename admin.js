@@ -580,6 +580,11 @@
 
     function normalizeConfirmation(record) {
         const response = normalizeResponse(record && record.respuesta);
+        const registros = Array.isArray(record && record.registros)
+            ? record.registros
+            : (record && record.registros && typeof record.registros === "object"
+                ? Object.values(record.registros)
+                : []);
         return {
             id: normalizeGuestId(record && (record.id || record._key)),
             nombre: String(record && record.nombre || "").trim(),
@@ -588,8 +593,41 @@
             cantidadConfirmada: response === "si"
                 ? Math.max(0, Number(record && record.cantidadConfirmada) || 0)
                 : 0,
-            fechaConfirmacion: Number(record && record.fechaConfirmacion) || null
+            fechaConfirmacion: Number(record && record.fechaConfirmacion) || null,
+            isGroupPool: Boolean(record && record.isGroupPool),
+            registros
         };
+    }
+
+    function formatGroupEntrySuffix(index) {
+        let value = index + 1;
+        let suffix = "";
+        while (value > 0) {
+            value -= 1;
+            suffix = String.fromCharCode(65 + (value % 26)) + suffix;
+            value = Math.floor(value / 26);
+        }
+        return suffix;
+    }
+
+    function buildGroupRows(groupConfirmation, guest) {
+        return groupConfirmation.registros.map(function (record, index) {
+            const response = normalizeResponse(record && record.respuesta);
+            const code = String(record && record.codigo || "").trim();
+            const name = String(record && record.nombre || groupConfirmation.nombre || guest.nombre || "Invitado").trim();
+
+            return {
+                id: "47" + formatGroupEntrySuffix(index),
+                nombre: code ? name + " (Código: " + code + ")" : name,
+                pasesAsignados: 1,
+                respuesta: response,
+                cantidadConfirmada: response === "si" ? 1 : 0,
+                fechaConfirmacion: Number(record && record.fechaConfirmacion) || groupConfirmation.fechaConfirmacion || null,
+                activo: true,
+                canEdit: false,
+                canReactivate: false
+            };
+        });
     }
 
     function getGuestCreationOrderHint(id, fallbackIndex) {
@@ -692,6 +730,11 @@
                 return;
             }
 
+            if (id === "47" && confirmation.isGroupPool && confirmation.registros.length > 0) {
+                rows.push.apply(rows, buildGroupRows(confirmation, guest));
+                return;
+            }
+
             rows.push({
                 ...confirmation,
                 nombre: confirmation.nombre || guest.nombre,
@@ -704,6 +747,10 @@
 
         confirmationsByGuest.forEach(function (confirmation, id) {
             if (state.invitadosMap.has(id)) return;
+            if (id === "47" && confirmation.isGroupPool && confirmation.registros.length > 0) {
+                rows.push.apply(rows, buildGroupRows(confirmation, { nombre: confirmation.nombre }));
+                return;
+            }
             rows.push({
                 ...confirmation,
                 activo: false,

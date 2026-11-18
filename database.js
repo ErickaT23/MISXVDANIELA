@@ -587,10 +587,10 @@ function buildSpecialGroupRecord(payload) {
     confirmado: true,
     fechaConfirmacion: Number((payload && payload.fechaConfirmacion) || now),
     isGroupPool: true,
-    capacidadTotal: 20,
+    capacidadTotal: 50,
     confirmados: 0,
     noAsistiran: 0,
-    pendientes: 20,
+    pendientes: 50,
     codigosEmitidos: {},
     dispositivos: {},
     registros: []
@@ -640,9 +640,9 @@ async function saveGroupConfirmation(arg1, arg2, arg3) {
     targetRef,
     function(currentData) {
       const base = buildSpecialGroupRecord(payload);
-      const state = currentData && typeof currentData === "object"
-        ? { ...base, ...currentData }
-        : base;
+        const state = currentData && typeof currentData === "object"
+          ? { ...base, ...currentData, capacidadTotal: 50 }
+          : base;
 
       const dispositivos = state.dispositivos && typeof state.dispositivos === "object"
         ? { ...state.dispositivos }
@@ -657,13 +657,13 @@ async function saveGroupConfirmation(arg1, arg2, arg3) {
         return;
       }
 
-      const capacidadTotal = 20;
+      const capacidadTotal = 50;
       const confirmados = Math.max(0, Number(state.confirmados) || 0);
       const noAsistiran = Math.max(0, Number(state.noAsistiran) || 0);
       const now = Date.now();
 
       if (requestedResponse === "si") {
-        if (confirmados >= capacidadTotal) {
+        if (confirmados + noAsistiran >= capacidadTotal) {
           return;
         }
 
@@ -695,7 +695,7 @@ async function saveGroupConfirmation(arg1, arg2, arg3) {
         });
 
         const nextConfirmados = confirmados + 1;
-        const pendientes = Math.max(0, capacidadTotal - nextConfirmados);
+        const pendientes = Math.max(0, capacidadTotal - nextConfirmados - noAsistiran);
 
         return {
           ...state,
@@ -739,7 +739,7 @@ async function saveGroupConfirmation(arg1, arg2, arg3) {
         capacidadTotal,
         confirmados,
         noAsistiran: noAsistiran + 1,
-        pendientes: Math.max(0, capacidadTotal - confirmados),
+        pendientes: Math.max(0, capacidadTotal - confirmados - noAsistiran),
         codigosEmitidos,
         dispositivos,
         registros,
@@ -827,7 +827,7 @@ async function saveConfirmation(arg1, arg2) {
   const payload = parsed.payload;
   const guestId = String((payload && payload.id) || "").trim() || "default";
 
-  if (guestId === "3B") {
+  if (guestId === "47") {
     return saveGroupConfirmation(eventId, payload, payload && payload.options ? payload.options : {});
   }
 
@@ -868,7 +868,7 @@ async function getGroupSummaryByGuestId(arg1, arg2) {
   if (!snapshot.exists()) return null;
   const data = snapshot.val() || {};
   const confirmados = Math.max(0, Number(data.confirmados) || 0);
-  const capacidadTotal = 20;
+  const capacidadTotal = 50;
   const noAsistiran = Math.max(0, Number(data.noAsistiran) || 0);
 
   return {
@@ -876,7 +876,7 @@ async function getGroupSummaryByGuestId(arg1, arg2) {
     nombre: String(data.nombre || ""),
     capacidadTotal,
     confirmados,
-    pendientes: Math.max(0, capacidadTotal - confirmados),
+    pendientes: Math.max(0, capacidadTotal - confirmados - noAsistiran),
     noAsistiran
   };
 }

@@ -160,7 +160,7 @@ function createSiteConfig(remoteConfig) {
                 lugar: 'Jardín Vilaflor',
                 hora: '18:00 hrs',
                 direccion: 'Kilómetro 32.5, carretera hacia San Lucas, Antigua Guatemala',
-                ubicacionUrl: 'https://maps.app.goo.gl/avZaewNmhM6xo6Nn9',
+                ubicacionUrl: 'https://maps.app.goo.gl/2kh61wu9aWDcP1US7',
                 ...(localEvento.recepcion || {}),
                 ...(remoteEvento.recepcion || {})
             }
@@ -241,7 +241,7 @@ function applySiteConfig() {
     if (invitadoMensaje) invitadoMensaje.textContent = SiteConfig.textos.mensajeInvitado;
 
     applyEventCard('.events-container .event-card:nth-child(1)', SiteConfig.evento.ceremonia);
-    applyEventCard('.events-container .event-card:nth-child(2)', SiteConfig.evento.recepcion);
+    applyEventCard('.events-container .event-card:nth-child(1)', SiteConfig.evento.recepcion);
     applyFooterConfig();
     MusicBubble.applyConfig();
 }
@@ -268,10 +268,12 @@ function applyEventCard(selector, data) {
 
     const initial = card.querySelector('.event-inicial');
     const rest = card.querySelector('.event-resto');
+    const titleEl = card.querySelector('.event-title');
     const titulo = String(data.titulo || '').trim();
     if (titulo) {
         if (initial) initial.textContent = titulo.charAt(0);
         if (rest) rest.textContent = titulo.slice(1);
+        if (titleEl && !initial && !rest) titleEl.textContent = titulo;
     }
 
     const timeEl = card.querySelector('.event-time');
@@ -301,7 +303,7 @@ function applyFooterConfig() {
 // CONFIGURACIÓN - Editar aquí los invitados
 // ============================================
 const GuestConfig = {
-    invitados: {},
+    invitados: (window.config && window.config.guestDirectory) || {},
     invitadoDefault: { nombre: "Invitado Especial", pases: 2 },
     paramId: 'id'
 };
@@ -370,8 +372,12 @@ const InvitadoApp = {
     renderSection() {
         const nombreEl = document.getElementById('nombre-invitado');
 
-        if (nombreEl) nombreEl.textContent = this.data.nombre;
-        const displayPases = String(this.data && this.data.id || '') === '3B' ? 1 : this.data.pases;
+        const isSpecialGroup = String(this.data && this.data.id || '') === '47';
+        if (nombreEl) {
+            nombreEl.textContent = isSpecialGroup ? '' : this.data.nombre;
+            nombreEl.hidden = isSpecialGroup;
+        }
+        const displayPases = isSpecialGroup ? 1 : this.data.pases;
         this.renderPasesText(displayPases);
     },
 
@@ -395,12 +401,12 @@ const InvitadoApp = {
         const guestsSelect = document.getElementById('guest-count');
         const responseYes = document.getElementById('rsvp-response-yes');
         const responseNo = document.getElementById('rsvp-response-no');
-        const isSpecialGroup = String(this.data && this.data.id || '') === '3B';
+        const isSpecialGroup = String(this.data && this.data.id || '') === '47';
         const totalPases = isSpecialGroup ? 1 : Math.max(1, Number(this.data && this.data.pases) || 1);
 
         if (nameInput) {
-            nameInput.value = this.data.nombre;
-            nameInput.readOnly = true;
+            nameInput.value = isSpecialGroup ? '' : this.data.nombre;
+            nameInput.readOnly = !isSpecialGroup;
         }
 
         if (guestsSelect) {
@@ -715,10 +721,8 @@ function initRotatingSeparator() {
     if (!separatorImage) return;
 
     const images = [
-        'images/fotos/V7.jpg',
-        'images/fotos/V8.jpg',
-        'images/fotos/V9.jpg',
-        'images/fotos/V10.jpg'
+        'images/fotos/FN.png',
+        'images/fotos/FN2.png'
     ];
 
     let currentIndex = Math.max(0, images.indexOf(separatorImage.getAttribute('src') || ''));
@@ -795,7 +799,7 @@ function initRSVP() {
         no: 'Lamentamos que no puedas acompañarnos, te extrañaremos.'
     };
     const activeEventId = String(window.currentEventId || '').trim();
-    const specialGroupId = '3B';
+    const specialGroupId = '47';
     let formLocked = false;
     let isCheckingStatus = false;
     const previewMode = Boolean(externalConfig && externalConfig.event && externalConfig.event.previewMode);
@@ -852,6 +856,7 @@ function initRSVP() {
         popup.classList.remove('is-error');
         popup.innerHTML = [
             '<h4 class="rsvp-popup-title">Confirmar Asistencia</h4>',
+            specialGroupId === guestId ? '<input id="rsvp-popup-name" class="rsvp-popup-name" type="text" maxlength="80" placeholder="Escribe tu nombre" autocomplete="name" required>' : '',
             '<p class="rsvp-popup-subtitle">Lugares reservados</p>',
             '<select id="rsvp-popup-count" class="rsvp-popup-select">' + options.join('') + '</select>',
             '<div class="rsvp-popup-actions">',
@@ -863,9 +868,14 @@ function initRSVP() {
         const yesBtn = popup.querySelector('#rsvp-popup-yes');
         const noBtn = popup.querySelector('#rsvp-popup-no');
         const countSelect = popup.querySelector('#rsvp-popup-count');
+        const popupName = popup.querySelector('#rsvp-popup-name');
 
         if (yesBtn) {
             yesBtn.addEventListener('click', function() {
+                if (popupName && !String(popupName.value || '').trim()) {
+                    popupName.focus();
+                    return;
+                }
                 const selectedCount = Math.max(1, Number(countSelect && countSelect.value) || 1);
                 processConfirmation('si', selectedCount);
             });
@@ -873,6 +883,10 @@ function initRSVP() {
 
         if (noBtn) {
             noBtn.addEventListener('click', function() {
+                if (popupName && !String(popupName.value || '').trim()) {
+                    popupName.focus();
+                    return;
+                }
                 processConfirmation('no', 0);
             });
         }
@@ -1062,7 +1076,9 @@ function initRSVP() {
 
         const payload = {
             id: guestId,
-            nombre: String(guestData.nombre || ''),
+            nombre: guestId === specialGroupId
+                ? String((document.getElementById('rsvp-popup-name') || {}).value || '').trim()
+                : String(guestData.nombre || ''),
             pasesAsignados: maxAllowedCount,
             respuesta,
             cantidadConfirmada: guestId === specialGroupId && respuesta === 'si' ? 1 : confirmedCount,

@@ -205,7 +205,7 @@ p {
   border-radius: 999px;
   border: 1px solid rgba(201, 152, 173, 0.55);
   background: linear-gradient(150deg, rgba(255, 248, 244, 0.96), rgba(238, 217, 205, 0.92));
-  color: #cfa59a;
+  color: #7b2948;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -261,7 +261,7 @@ p {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  color: #cfa59a;
+  color: #7b2948;
   background: linear-gradient(145deg, rgba(255, 250, 252, 0.72), rgba(237, 218, 223, 0.58));
   border: 1px solid rgba(186, 133, 154, 0.55);
   border-radius: 999px;
@@ -421,21 +421,21 @@ p {
 
 .hero-title {
   font-family: "Luxurious Script", cursive;
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 55px;
+  font-weight: 400;
   margin-top: clamp(0.4rem, 2vw, 1.4rem);
   margin-bottom: 0;
   padding: 10px;
   line-height: 0.95;
   color: transparent !important;
-  background: linear-gradient(180deg, #f5d8ce 0%, #e8b9aa 38%, #c98d7d 72%, #a96861 100%);
+  background: linear-gradient(180deg, #7b2948 0%, #85113b 22%, #681d3b 50%, #85113b 74%, #411329 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
-    0 3px 6px rgba(35, 20, 20, 0.42),
-    0 0 14px rgba(206, 158, 150, 0.22),
-    0 0 2px rgba(255, 236, 228, 0.28);
+    0 3px 6px rgba(20, 10, 9, 0.78),
+    0 0 12px rgba(74, 20, 43, 0.38),
+    0 0 2px rgba(241, 126, 166, 0.58);
   animation: roseShimmer 3.8s linear infinite, portadaNameZoom 4.2s ease-in-out infinite;
 }
 
@@ -552,7 +552,7 @@ p {
   letter-spacing: 0.02em;
   line-height: 1.45;
   text-shadow: none;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -611,7 +611,7 @@ p {
   font-weight: 300;
   letter-spacing: 0.02em;
   line-height: 1.45;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -700,7 +700,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
   letter-spacing: 0.02em;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -733,7 +733,7 @@ p {
   font-family: "Cormorant Garamond", serif;
   font-size: 30px;
   text-transform: uppercase;
-  color: #c59ea2 !important;
+  color: #7b2948 !important;
 }
 
 .invitado-mensaje,
@@ -747,7 +747,7 @@ p {
   font-size: 20px;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  color: #c59ea2 !important;
+  color: #7b2948 !important;
 }
 
 .invitado-lugares {
@@ -755,13 +755,13 @@ p {
   font-family: "Cormorant Garamond", serif;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #c59ea2 !important;
+  color: #7b2948 !important;
 }
 
 .rsvp-intro {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  color: #c59ea2 !important;
+  color: #7b2948 !important;
   font-size: 20px;
 }
 
@@ -830,8 +830,8 @@ p {
   width: 100%;
   min-height: 48px;
   font-size: 1rem;
-  background: #cfa59a;
-  color: #8e6228 !important;
+  background: #7b2948;
+  color: #7b2948 !important;
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -853,16 +853,16 @@ p {
 
 #rsvp-final-message {
   font-family: "Cormorant Garamond", serif;
-  color: #c59ea2 !important;
+  color: #7b2948 !important;
   font-style: italic;
 }
 
 .countdown {
   color: #fff;
   background-color: #efe0d0;
-  background-image: url("images/fotos/V3.jpg");
+  background-image: url("images/fotos/F5.png");
   background-position: center;
-  background-size: cover;
+  background-size: 150% 150%;
   background-repeat: no-repeat;
 }
 
@@ -890,7 +890,7 @@ p {
 .countdown h3 {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -928,7 +928,7 @@ p {
   font-family: "Cormorant Garamond", serif;
   font-size: 17px;
   line-height: 1;
-  color: #c59ea2;
+  color: #7b2948;
 }
 
 .count-grid small {
@@ -936,12 +936,12 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 9px;
-  color: #b889a0;
+  color: #7b2948;
 }
 
 .countdown-calendar {
   background: #e3c5c8b0;
-  color: #8e6228 !important;
+  color: #7b2948 !important;
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -988,7 +988,7 @@ p {
   font-size: 20px;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  color: #cfa59a !important;
+  color: #7b2948 !important;
   animation: textSlideInSoft 0.95s ease-out both;
 }
 
@@ -997,7 +997,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
   letter-spacing: 0.02em;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1019,7 +1019,7 @@ p {
 #itinerario .section-head h3 {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1101,7 +1101,7 @@ p {
   letter-spacing: 0.06em;
   font-family: "Cormorant Garamond", serif;
   text-transform: uppercase;
-  color: #cfa59a !important;
+  color: #7b2948 !important;
   animation: textSlideInSoft 0.95s ease-out both;
 }
 
@@ -1110,7 +1110,7 @@ p {
   font-size: 40px;
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1181,8 +1181,6 @@ p {
 
 .event-emoji {
   display: block;
-  width: 120px;
-  height: 120px;
   object-fit: contain;
   margin-inline: auto;
   margin-bottom: 0.3rem;
@@ -1193,7 +1191,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-size: 33px;
   font-weight: 500;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1208,7 +1206,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1.25;
-  color: #cfa59a !important;
+  color: #7b2948 !important;
 }
 
 #eventos .event-time {
@@ -1225,7 +1223,7 @@ p {
   min-height: 40px;
   margin-inline: auto;
   background: #c59ea2;
-  color: #8e6228 !important;
+  color: #7b2948 !important;
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -1274,7 +1272,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-weight: 500;
   letter-spacing: 0.02em;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1313,7 +1311,7 @@ p {
 .fotos-copy {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  color: #cfa59a !important;
+  color: #7b2948 !important;
   font-size: clamp(1.15rem, 2.7vw, 1.45rem);
   line-height: 1.36;
 }
@@ -1338,7 +1336,7 @@ p {
   min-height: 46px;
   margin: 0.9rem auto 0;
   background: #c59ea2;
-  color: #8e6228 !important;
+  color: #7b2948 !important;
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -1493,7 +1491,7 @@ p {
   margin: 0.75rem 0 0;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  color: #cfa59a;
+  color: #7b2948;
 }
 
 .deseos-list {
@@ -1515,23 +1513,23 @@ p {
 
 .wish-card-name {
   font-size: 1.2rem;
-  color: #8e6228;
+  color: #7b2948;
 }
 
 .wish-card-message {
   margin-top: 0.2rem;
-  color: #cfa59a;
+  color: #7b2948;
 }
 
 .wish-card-date {
   margin-top: 0.3rem;
-  color: #cfa59a;
+  color: #7b2948;
   font-size: 0.8rem;
   font-style: italic;
 }
 
 .wishes-empty {
-  color: #cfa59a;
+  color: #7b2948;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
 }
@@ -1567,7 +1565,7 @@ p {
 
 .frase-final p {
   padding: clamp(1.4rem, 4vw, 2.2rem) clamp(1rem, 4vw, 2rem);
-  color: #cfa59a !important;
+  color: #7b2948 !important;
   text-shadow: none;
   font-size: clamp(2rem, 7.8vw, 3.1rem);
   line-height: 1.16;
@@ -1582,7 +1580,7 @@ p {
 
 .event-time,
 .event-direccion {
-  color: #cfa59a !important;
+  color: #7b2948 !important;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
 }
@@ -1647,7 +1645,7 @@ p {
   max-width: none;
   padding: 1rem 1.2rem 1.4rem;
   text-align: center;
-  background: #cfa59a;
+  background: #7b2948;
   border-top: 1px solid rgba(255, 230, 236, 0.42);
   border: 0;
   border-radius: 0;
@@ -1772,7 +1770,7 @@ p {
   font-family: "Luxurious Script", cursive;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: radial-gradient(circle at 50% 45%, #dcb9ad 0%, #d3afa3 30%, #cfa59a 62%, #8f675d 100%);
+  background: radial-gradient(circle at 50% 45%, #a94f70 0%, #7b2948 30%, #651d3a 62%, #3f1228 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1785,7 +1783,7 @@ p {
   font-size: 20px;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  color: #c59ea2 !important;
+  color: #7b2948 !important;
 }
 
 .rsvp-popup-select {
@@ -1795,6 +1793,17 @@ p {
   padding: 0.52rem;
   font-size: 0.92rem;
   font: inherit;
+  background: #fff;
+}
+
+.rsvp-popup-name {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.52rem;
+  margin-bottom: 0.42rem;
+  font: inherit;
+  color: #7b2948;
   background: #fff;
 }
 
@@ -1818,22 +1827,22 @@ p {
   font-weight: 700;
   letter-spacing: 0.03em;
   cursor: pointer;
-  background: #c59ea2;
-  color: #8e6228 !important;
+  background: #e8c4c7;
+  color: #7b2948 !important;
   text-transform: uppercase;
   box-shadow: 0 8px 22px rgba(31, 20, 17, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.68);
 }
 
 .rsvp-popup-btn.secondary {
-  background: floralwhite;
-  color: #c59ea2 !important;
+  background: #f7e7e8;
+  color: #7b2948 !important;
 }
 
 .rsvp-popup-message {
   margin: 0.52rem 0 0.08rem;
   font-size: 0.92rem;
   font-family: "Cormorant Garamond", serif;
-  color: #c59ea2 !important;
+  color: #7b2948 !important;
   font-style: italic;
 }
 
@@ -2016,12 +2025,12 @@ body:not(.portada-lock) {
   font-weight: 400;
   line-height: 1.02;
   text-align: center;
-  background: linear-gradient(180deg, #d6b36b 0%, #633d0a 35%, #b88746 55%, #5c482e 78%, #5c482e 100%);
+  background: linear-gradient(180deg, #7b2948 0%, #85113b 22%, #681d3b 50%, #85113b 74%, #411329 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent !important;
-  text-shadow: 0 6px 20px rgba(97, 70, 45, 0.3), 0 0 16px rgba(217, 181, 106, 0.34);
+  text-shadow: 0 6px 20px rgba(74, 20, 43, 0.42), 0 0 16px rgba(241, 126, 166, 0.32);
   animation: roseShimmer 3.8s linear infinite, portadaNameZoom 4.2s ease-in-out infinite;
   margin-top: 90px;
   padding: 10px;
@@ -2102,8 +2111,8 @@ body:not(.portada-lock) {
 }
 
 #portada #btn-abrir {
-  background: #cfa59a;
-  color: #8e6228 !important;
+  background: #7b2948;
+  color: #7b2948 !important;
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -2193,7 +2202,7 @@ body:not(.portada-lock) {
 button,
 .btn-soft,
 .btn-location {
-  background-color: #cfa59a !important;
+  background-color: #cb927f !important;
 }
 
 .gold-sparkle-rain {

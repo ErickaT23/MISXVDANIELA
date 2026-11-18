@@ -97,8 +97,48 @@ function normalizeConfirmation(record) {
         capacidadTotal: groupCapacidadTotal,
         confirmados: groupConfirmados,
         noAsistiran: groupNoAsistiran,
-        pendientes: Math.max(0, (groupCapacidadTotal || 0) - groupConfirmados)
+        pendientes: Math.max(0, (groupCapacidadTotal || 0) - groupConfirmados),
+        registros: Array.isArray(record && record.registros)
+            ? record.registros
+            : (record && record.registros && typeof record.registros === "object"
+                ? Object.values(record.registros)
+                : [])
     };
+}
+
+function formatGroupEntrySuffix(index) {
+    let value = index + 1;
+    let suffix = "";
+    while (value > 0) {
+        value -= 1;
+        suffix = String.fromCharCode(65 + (value % 26)) + suffix;
+        value = Math.floor(value / 26);
+    }
+    return suffix;
+}
+
+function buildGroupRows(groupConfirmation) {
+    const records = Array.isArray(groupConfirmation && groupConfirmation.registros)
+        ? groupConfirmation.registros
+        : [];
+
+    return records.map((record, index) => {
+        const response = normalizeResponse(record && record.respuesta);
+        const suffix = formatGroupEntrySuffix(index);
+        const code = String(record && record.codigo || "").trim();
+        const baseName = String(record && record.nombre || groupConfirmation.nombre || "").trim();
+
+        return {
+            id: "47" + suffix,
+            nombre: code ? baseName + " (Código: " + code + ")" : baseName,
+            pasesAsignados: 1,
+            respuesta: response,
+            cantidadConfirmada: response === "si" ? 1 : 0,
+            fechaConfirmacion: Number(record && record.fechaConfirmacion) || groupConfirmation.fechaConfirmacion || null,
+            activo: true,
+            isGroupEntry: true
+        };
+    });
 }
 
 function buildRows(confirmations, guestDirectory) {
@@ -126,6 +166,11 @@ function buildRows(confirmations, guestDirectory) {
                 cantidadConfirmada: 0,
                 fechaConfirmacion: null
             });
+            return;
+        }
+
+        if (id === "47" && confirmation.isGroupPool && confirmation.registros.length > 0) {
+            rows.push(...buildGroupRows(confirmation));
             return;
         }
 

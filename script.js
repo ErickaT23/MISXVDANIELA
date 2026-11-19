@@ -373,11 +373,26 @@ const InvitadoApp = {
         const nombreEl = document.getElementById('nombre-invitado');
 
         const isSpecialGroup = String(this.data && this.data.id || '') === '47';
+        const displayPases = isSpecialGroup ? 1 : this.data.pases;
+        const isPlural = displayPases >= 2;
+        const invitationTitle = document.querySelector('#rsvp-section .section-head h3');
+        const invitationMessage = document.querySelector('.invitado-mensaje');
+
+        if (invitationTitle) {
+            invitationTitle.textContent = isPlural
+                ? '¡Es un placer invitarlos!'
+                : '¡Es un placer invitarte!';
+        }
+        if (invitationMessage) {
+            invitationMessage.textContent = isPlural
+                ? 'Son muy especiales para nosotros'
+                : 'Eres muy especial para nosotros';
+        }
+
         if (nombreEl) {
             nombreEl.textContent = isSpecialGroup ? '' : this.data.nombre;
             nombreEl.hidden = isSpecialGroup;
         }
-        const displayPases = isSpecialGroup ? 1 : this.data.pases;
         this.renderPasesText(displayPases);
     },
 
@@ -386,7 +401,9 @@ const InvitadoApp = {
         if (!lugaresEl) return;
 
         const template = String(SiteConfig.textos.mensajePases || '{pases} lugares');
-        const withPases = template.replace('{pases}', String(pases));
+        const withPases = template
+            .replace('{pases}', String(pases))
+            .replace(/para ti/gi, pases >= 2 ? 'para ustedes' : 'para ti');
         lugaresEl.textContent = pases === 1
             ? withPases
                 .replace(/\blugares\s+especiales\b/gi, 'lugar especial')
